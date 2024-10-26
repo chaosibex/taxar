@@ -289,3 +289,4 @@ wsproto==1.2.0
 xattr==1.1.0
 yarl==1.13.1
 zipp==3.20.2
+sqlite3 == 3.35.0
