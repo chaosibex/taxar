@@ -28,7 +28,10 @@ I am good at explaining personal tax reliefs, and I am able to give a rough esti
 
 You can fill in your profile over at the side bar 👈🏻 so that I can know you better!
 
-And don't worry, I do not save any of your data. Just hit the refresh button ↪️ and I will forget about you 😬
+Note that I have really short-term memory 🙈:
+
+1. I probably won't remember what you just told me earlier, please remind me again if needed 🤨.
+2. Just hit the refresh button ↪️ and I will forget about you 😬.
 """
 
 def pie_chart_colours():
