@@ -3,6 +3,10 @@ from handlers.query_handler import process_query
 from helpers.utils import check_password, escape_markdown, format_autopct, get_resources
 import matplotlib.pyplot as plt
 
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 
 APP_NAME = "Taxar"
 
