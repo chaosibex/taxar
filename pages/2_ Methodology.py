@@ -32,9 +32,9 @@ st.markdown("""
 
 #### Classifier Agent
 This agent categorizes each query into one of three categories:
-    1. Explaining Tax Policy: Provides users with clear, up-to-date explanations of tax policies to support their understanding of complex tax topics.
-    2. Tax Relief Recommendation and Estimation: Reviews the user's profile to suggest potential tax reliefs and estimate the total relief amount.
-    3. Not Applicable: If the query is unrelated to tax, it is categorized as “Not Applicable.”
+1. Explaining Tax Policy: Provides users with clear, up-to-date explanations of tax policies to support their understanding of complex tax topics.
+2. Tax Relief Recommendation and Estimation: Reviews the user's profile to suggest potential tax reliefs and estimate the total relief amount.
+3. Not Applicable: If the query is unrelated to tax, it is categorized as “Not Applicable.”
 
 #### "Explain" Crew
 The "crew" consists of a Recommender Manager, two Research Assistants, and a Writer. The Recommender Manager receives each query and delegates tasks to the most appropriate agent based on the query type. For accurate results, the Recommender Manager is guided to use the research tools exclusively.
