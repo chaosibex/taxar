@@ -121,10 +121,13 @@ def layout():
         with st.chat_message(message["role"]):
             st.markdown(escape_markdown(message["content"]))
             if message.get('chart'):
-                chart_data = message['chart']
-                amounts = list(map(int, chart_data['tax_relief_amount']))
-                plt.pie(amounts, labels=chart_data['tax_relief_name'], colors=pie_chart_colours(), autopct=lambda pct: format_autopct(pct, amounts))
-                st.pyplot (plt)
+                try:
+                    chart_data = message['chart']
+                    amounts = list(map(int, chart_data['tax_relief_amount']))
+                    plt.pie(amounts, labels=chart_data['tax_relief_name'], colors=pie_chart_colours(), autopct=lambda pct: format_autopct(pct, amounts))
+                    st.pyplot (plt)
+                except:
+                    print("error loading chart")
 
     st.chat_input(placeholder="Enter your message here...", on_submit=send_message, key="user_prompt")
 
