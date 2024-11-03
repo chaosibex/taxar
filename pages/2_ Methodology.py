@@ -68,6 +68,11 @@ st.markdown("""
 """)
 
 st.markdown("""
+## LLM Parameters
+Set temperature to 0.5 to balance between coherence and diversity to make the reply is more natural and engaging.
+""")
+
+st.markdown("""
 ## Obstacles
 1. **Hallucination**: The model may generate incorrect information or fabricate details that don't exist, leading to unreliable outputs.
 2. **Lack of Conversation Memory**: Each prompt is processed independently, with no recall of previous interactions, resulting in a loss of conversational continuity and context.
@@ -80,6 +85,8 @@ st.markdown("""
     a. **Introduce Step-by-Step Prompts**: Break down complex queries into sequential steps, guiding the AI to reason and respond methodically.
     
     b. **Error-Checking Layer**: Implement an additional AI agent layer dedicated to verifying the response for inaccuracies or inconsistencies.
+    
+    c. **Tuning Parameters**: Consider setting lower temperature and top-p to have a more deterministic output.
 2. Memory
     
     a. **Conversation Storage in Vector Store**: Save chat conversations in a vector store to retain context across sessions and retrieve past interactions as needed.

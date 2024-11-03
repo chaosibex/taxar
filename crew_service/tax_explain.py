@@ -1,7 +1,16 @@
 from crewai import Agent, Task, Crew
+from crewai import LLM
+import streamlit as st
+
 
 def assemble_tax_explain_crew(research_tools):
+    llm = LLM(
+        model=st.secrets['OPENAI_MODEL_NAME'],
+        temperature=0.5,
+    )
+
     agent_researcher_manager = Agent(
+        llm=llm,
         role="Tax Policy Researcher Manager",
         goal="Delegate tasks to the most suitable researcher based on their expertise and workload, ensuring efficient project completion and maintaining high-quality standards.",
         backstory="""You are an experienced manager in the Tax Policy Research Department. 
@@ -12,6 +21,7 @@ def assemble_tax_explain_crew(research_tools):
     )
     
     agent_researcher_indepth = Agent(
+        llm=llm,
         role="Tax Policy Specialist Researcher (In-Depth)",
         goal="Perform a thorough analysis on tax policies in Singapore to assist tax related queries",
         backstory="""Armed with in-depth knowledge of Singapore's tax framework, you excel at performing meticulous research and analysis on the nation's evolving tax policies.
@@ -25,6 +35,7 @@ def assemble_tax_explain_crew(research_tools):
     )
     
     agent_researcher_lite = Agent(
+        llm=llm,
         role="Tax Policy Specialist Researcher (Lite)",
         goal="Perform a efficient analysis on tax policies in Singapore to assist tax related queries",
         backstory="""Armed with in-depth knowledge of Singapore's tax framework, you excel at conducting thorough research and analysis on evolving tax policies. Your key value to the team is your ability to quickly sift through legislative updates, government publications, and regulatory frameworks to extract the most relevant and up-to-date tax information.
@@ -37,6 +48,7 @@ def assemble_tax_explain_crew(research_tools):
     )
     
     agent_writer = Agent(
+        llm=llm,
         role="Senior Writer",
         goal="Distill the tax policies information and summarise the key facts inquired by users.",
         cache=True,

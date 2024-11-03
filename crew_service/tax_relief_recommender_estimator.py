@@ -1,7 +1,15 @@
 from crewai import Agent, Task, Crew
+from crewai import LLM
+import streamlit as st
 
 def assemble_tax_recommender_estimate_crew(research_tools):
+    llm = LLM(
+        model=st.secrets['OPENAI_MODEL_NAME'],
+        temperature=0.5,
+    )
+
     agent_personal_tax_consultant = Agent(
+        llm=llm,
         role="Personal Tax Consultant",
         goal="Provide personalized tax recommendations and accurate estimations by analyzing the user's profile, suggesting applicable reliefs, and offering alternative scenarios to optimize their tax liabilities.",
         backstory="""You are an expert personal tax consultant responsible for recommending personalized tax reliefs and estimating tax liabilities based on the user's basic profiling information.
